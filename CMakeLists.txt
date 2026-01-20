@@ -4,7 +4,7 @@ set(CMAKE_CXX_STANDARD 17)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
 
 add_library(amorfatiEngine
-    src/amorfati/Window.cpp
+    src/amorfati/core/Window.cpp
     src/amorfati/core/Window.h
 )
 
