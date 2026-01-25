@@ -5,7 +5,7 @@
 
 namespace amorfati {
     void PrintEngineStatus() {
-        std::cout << "Amorfati Engine is breathing...\n";
+        std::cout << "love your lowest lows and your highest highs... amorfati";
     }
 
     Window::Window(int width, int height, const std::string& title) {
@@ -18,7 +18,7 @@ namespace amorfati {
         mWindow = glfwCreateWindow(width, height, title.c_str(), nullptr, nullptr);
         
         if (!mWindow) {
-            std::cerr << "Failed to create GLFW window\n";
+            std::cerr << "window is cooked!";
             glfwTerminate();
             return;
         }
@@ -44,7 +44,7 @@ namespace amorfati {
     }
 
     void Window::Update() {
-        glClearColor(0.1f, 0.1f, 0.15f, 1.0f);
+        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
