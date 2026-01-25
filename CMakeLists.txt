@@ -13,14 +13,10 @@ FetchContent_Declare(
     GIT_REPOSITORY https://github.com/glfw/glfw.git
     GIT_TAG 3.4
 )
+FetchContent_MakeAvailable(glfw)
 
-FetchContent_Declare(
-    glad
-    GIT_REPOSITORY https://github.com/Dav1dde/glad.git
-    GIT_TAG v2.0.8
-)
-
-FetchContent_MakeAvailable(glfw glad)
+add_library(glad dependencies/glad/src/gl.c)
+target_include_directories(glad PUBLIC dependencies/glad/include)
 
 #«== define engine ==»#
 
@@ -28,6 +24,9 @@ add_library(amorfatiEngine
     src/amorfati/core/Window.cpp
     src/amorfati/core/Window.h
 )
+
+target_link_libraries(amorfatiEngine PUBLIC glfw glad)
+target_include_directories(amorfatiEngine PUBLIC src)
 
 add_executable(Sandbox src/main.cpp)
 target_link_libraries(Sandbox amorfatiEngine)
