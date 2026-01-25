@@ -23,6 +23,8 @@ target_include_directories(glad PUBLIC dependencies/glad/include)
 add_library(amorfatiEngine
     src/amorfati/core/Window.cpp
     src/amorfati/core/Window.h
+    src/amorfati/core/Shader.h
+    src/amorfati/core/Shader.cpp
 )
 
 target_link_libraries(amorfatiEngine PUBLIC glfw glad)
