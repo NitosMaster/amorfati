@@ -43,8 +43,8 @@ namespace amorfati {
         return glfwWindowShouldClose(mWindow);
     }
 
-    void Window::Update() {
-        glClearColor(1.0f, 1.0f, 1.0f, 1.0f);
+    void Window::Update(float r,float g,float b,float a) {
+        glClearColor(r/255.0f, g/255.0f, b/255.0f, a);
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
