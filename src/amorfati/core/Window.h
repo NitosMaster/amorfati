@@ -18,5 +18,5 @@ namespace amorfati {
         GLFWwindow* mWindow;
     };
 
-    void PrintEngineStatus();
+    void PrintStatus();
 }
