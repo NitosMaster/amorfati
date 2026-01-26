@@ -1,25 +1,20 @@
 #include <amorfati/core/Window.h>
+#include <amorfati/core/Shader.h>
 
 int main () {
     amorfati::PrintEngineStatus();
     
-    amorfati::Window window(1280, 720, "Amor Fati Engine");
-    
-    float r;
-    float g;
-    float b;
-    float a;
-
-    std::cout << "\nred? ";
-    std::cin >> r;
-    std::cout << "green? ";
-    std::cin >> g;
-    std::cout << "blue? ";
-    std::cin >> b;
+    amorfati::Window window(1280, 720, "aim r fatty");
 
     while (!window.ShouldClose()) {
-        window.Update(r, g, b, a);
+        window.Update(0, 0, 0, 1);
     }
+    
+    const char* vertexPath = "~/CompSci/amorfati/assets/shaders/test.vert";
+    const char* fragPath = "~/CompSci/amorfati/assets/shaders/test.frag";
+
+    amorfati::Shader(vertexPath, fragPath);
+    useShader();
 
     return 0;
 }
