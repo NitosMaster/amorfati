@@ -1,7 +1,6 @@
 #include<glad/gl.h>
 #include<GLFW/glfw.h>
 #include<iostream>
-#include<string>
 
 int main () {
     unsigned int vertexShader = glCreateShader(GL_VERTEX_SHADER);
