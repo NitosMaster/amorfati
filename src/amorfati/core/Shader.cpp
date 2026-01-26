@@ -7,49 +7,49 @@ namespace amorfati {
     Shader::Shader(const char* vertexPath, const char* fragmentPath) {
         std::string vertexCode;
         std::string fragmentCode;
-        std::ifstream vShaderFile;
-        std::ifstream fShaderFile;
+        std::ifstream vertShader; // v for "vert"
+        std::ifstream fragShader; // f for "frag"
 
-        vShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-        fShaderFile.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+        vertShader.exceptions(std::ifstream::failbit | std::ifstream::badbit);
+        fragShader.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         
         try {
-            vShaderFile.open(vertexPath);
-            fShaderFile.open(fragmentPath);
-            std::stringstream vShaderStream, fShaderStream;
-            vShaderStream << vShaderFile.rdbuf();
-            fShaderStream << fShaderFile.rdbuf();
-            vShaderFile.close();
-            fShaderFile.close();
+            vShader.open(vertexPath);
+            fShader.open(fragmentPath);
+            std::stringstream vStream, fStream;
+            vStream << vertShader.rdbuf();
+            fStream << fragShader.rdbuf();
+            vertShader.close();
+            fragShader.close();
             vertexCode = vShaderStream.str();
             fragmentCode = fShaderStream.str();
         } catch (std::ifstream::failure& e) {
             std::cout << "Shader file was caught lackin on read!\n";
         }
 
-        const char* vShaderSource = vertexCode.c_str();
-        const char* fShaderSource = fragmentCode.c_str();
+        const char* vSource = vertexCode.c_str();
+        const char* fSource = fragmentCode.c_str();
 
         unsigned int vertex, fragment;
         int success;
-        char infoLog[512];
+        char debug[512];
 
         vertex = glCreateShader(GL_VERTEX_SHADER);
-        glShaderSource(vertex, 1, &vShaderSource, NULL);
+        glShaderSource(vertex, 1, &vSource, NULL);
         glCompileShader(vertex);
         glGetShaderiv(vertex, GL_COMPILE_STATUS, &success);
         if (!success) {
-            glGetShaderInfoLog(vertex, 512, NULL, infoLog);
-            std::cout << "Vertex caught lackin:\n" << infoLog << std::endl;
+            glGetShaderInfoLog(vertex, 512, NULL, debug);
+            std::cout << "vertex caught lackin:\n" << debug << std::endl;
         }
 
         fragment = glCreateShader(GL_FRAGMENT_SHADER);
-        glShaderSource(fragment, 1, &fShaderSource, NULL);
+        glShaderSource(fragment, 1, &fSource, NULL);
         glCompileShader(fragment);
         glGetShaderiv(fragment, GL_COMPILE_STATUS, &success);
         if (!success) {
-            glGetShaderInfoLog(fragment, 512, NULL, infoLog);
-            std::cout << "Fragment caught lackin:\n" << infoLog << std::endl;
+            glGetShaderInfoLog(fragment, 512, NULL, debug);
+            std::cout << "fragment caught lackin:\n" << debug << std::endl;
         }
 
         ID = glCreateProgram();
@@ -58,8 +58,8 @@ namespace amorfati {
         glLinkProgram(ID);
         glGetProgramiv(ID, GL_LINK_STATUS, &success);
         if (!success) {
-            glGetProgramInfoLog(ID, 512, NULL, infoLog);
-            std::cout << "Program link caught lackin:\n" << infoLog << std::endl;
+            glGetProgramInfoLog(ID, 512, NULL, debug);
+            std::cout << "program (insert zelda protagonist here) caught lackin:\n" << debug << std::endl;
         }
 
         glDeleteShader(vertex);
