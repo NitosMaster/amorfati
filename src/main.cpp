@@ -5,7 +5,7 @@ int main () {
     const char* vertexPath = "/home/CompSci/amorfati/assets/shaders/test.vert";
     const char* fragPath = "/home/CompSci/amorfati/assets/shaders/test.frag";
 
-    amorfati::PrintStatus()
+    amorfati::PrintStatus();
     amorfati::Window window(1280, 720, "aim r fatty");
     amorfati::Shader test(vertexPath, fragPath);
 
