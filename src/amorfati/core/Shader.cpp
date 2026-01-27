@@ -14,17 +14,17 @@ namespace amorfati {
         fragShader.exceptions(std::ifstream::failbit | std::ifstream::badbit);
         
         try {
-            vShader.open(vertexPath);
-            fShader.open(fragmentPath);
+            vertShader.open(vertexPath);
+            fragShader.open(fragmentPath);
             std::stringstream vStream, fStream;
             vStream << vertShader.rdbuf();
             fStream << fragShader.rdbuf();
             vertShader.close();
             fragShader.close();
-            vertexCode = vShaderStream.str();
-            fragmentCode = fShaderStream.str();
+            vertexCode = vStream.str();
+            fragmentCode = fStream.str();
         } catch (std::ifstream::failure& e) {
-            std::cout << "Shader file was caught lackin on read!\n";
+            std::cout << "Shader file was caught lackin!\n";
         }
 
         const char* vSource = vertexCode.c_str();
