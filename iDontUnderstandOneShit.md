@@ -1,8 +1,7 @@
 # yeah what the title says
 
 ## goal
-I'm not sure exactly how high level I want this game engine to be but I'd like to make me never have to touch .vert, .frag and openGL funcs. Additionally I believe the scripting lang is going to be crystal and that means I'll have to do some .so/.ddl magic I'm going to delay as much as I can.
-
+I'm not sure exactly how high level I want this game engine to be but I'd like to make me never have to touch .vert, .frag and openGL funcs. Additionally I believe the scripting lang is going to be crystal and that means I'll have to do some .so/.ddl magic I'm going to delay as much as I can. As I wnat the engine to be really customizable I am going to add a config file the user can edit, to change certain core characteristics of the engine to their hearts desire.
 ## Whats a graphics API?
 It talks to RAM and it essentially makes windows and draws pixels on those windows. It also renders stuff in 3D, such as vertices, edges and faces. For openGL to do that, I must give it a "Shader", that tells openGL where to put vertices and what color they should be. Shaders are seperate files written in GSLS, which kinda makes me wanna kys(kiss your sister). 
 
