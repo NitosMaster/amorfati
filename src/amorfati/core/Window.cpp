@@ -4,7 +4,7 @@
 #include <iostream>
 
 namespace amorfati {
-    void PrintEngineStatus() {
+    void PrintStatus() {
         std::cout << "love your lowest lows and your highest highs... amorfati";
     }
 

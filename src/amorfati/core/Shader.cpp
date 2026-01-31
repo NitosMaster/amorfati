@@ -4,29 +4,7 @@
 #include <sstream>
 
 namespace amorfati {
-    Shader::Shader(const char* vertexPath, const char* fragmentPath) {
-        std::string vertexCode;
-        std::string fragmentCode;
-        std::ifstream vertShader; // v for "vert"
-        std::ifstream fragShader; // f for "frag"
-
-        vertShader.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-        fragShader.exceptions(std::ifstream::failbit | std::ifstream::badbit);
-        
-        try {
-            vertShader.open(vertexPath);
-            fragShader.open(fragmentPath);
-            std::stringstream vStream, fStream;
-            vStream << vertShader.rdbuf();
-            fStream << fragShader.rdbuf();
-            vertShader.close();
-            fragShader.close();
-            vertexCode = vStream.str();
-            fragmentCode = fStream.str();
-        } catch (std::ifstream::failure& e) {
-            std::cout << "Shader file was caught lackin!\n";
-        }
-
+    Shader::Shader(const std::string& vertexCode, const std::string& fragmentCode) {
         const char* vSource = vertexCode.c_str();
         const char* fSource = fragmentCode.c_str();
 
@@ -52,7 +30,7 @@ namespace amorfati {
             std::cout << "fragment caught lackin:\n" << debug << std::endl;
         }
 
-        ID = glCreateProgram();
+        unsigned int ID = glCreateProgram();
         glAttachShader(ID, vertex);
         glAttachShader(ID, fragment);
         glLinkProgram(ID);

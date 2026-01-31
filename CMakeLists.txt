@@ -25,6 +25,10 @@ add_library(amorfatiEngine
     src/amorfati/core/Window.h
     src/amorfati/core/Shader.h
     src/amorfati/core/Shader.cpp
+    src/amorfati/factories/CreateVertFrag.h
+    src/amorfati/factories/CreateVertFrag.cpp
+    src/amorfati/factories/CreateVAO.h
+    src/amorfati/factories/CreateVAO.cpp
 )
 
 target_link_libraries(amorfatiEngine PUBLIC glfw glad)
