@@ -61,7 +61,7 @@ namespace amorfati {
     }
 
     void Shader::setVec4(const std::string &name, float r, float g, float b, float a) const {
-        glUniform4f(glGetUniformLocation(ID, name.c_str()), r/255.0f, g/255.0f, b/255.0f, a);
+        glUniform4f(glGetUniformLocation(ID, name.c_str()), r, g, b, a);
     }
 }
 
