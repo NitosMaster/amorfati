@@ -25,8 +25,9 @@ int main () {
 
     while (!window.ShouldClose()) {
         window.Update(0, 0, 0, 1);
-        test.useShader();
+        //test.useShader();
         test.setVec4("uColor", 0.6f, 0.2f, 0.4f, 1.0f);
+        test.useShader();
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
