@@ -5,7 +5,7 @@
 #include <vector>
 
 namespace amorfati {
-    unsigned int CreateVAO(float* vertices, unsigned int* edges); //«== "edges" yes I know very funny ==»//
+    unsigned int CreateVAO(float* vertices, size_t vertSize, unsigned int* edges, size_t edgeSize); //«== "edges" yes I know very funny ==»//
 }
 
 #endif

@@ -30,7 +30,7 @@ namespace amorfati {
             std::cout << "fragment caught lackin:\n" << debug << std::endl;
         }
 
-        unsigned int ID = glCreateProgram();
+        ID = glCreateProgram();
         glAttachShader(ID, vertex);
         glAttachShader(ID, fragment);
         glLinkProgram(ID);
@@ -58,6 +58,10 @@ namespace amorfati {
 
     void Shader::setFloat(const std::string &name, float value) const {
         glUniform1f(glGetUniformLocation(ID, name.c_str()), value);
+    }
+
+    void Shader::setVec4(const std::string &name, float r, float g, float b, float a) const {
+        glUniform4f(glGetUniformLocation(ID, name.c_str()), r/255.0f, g/255.0f, b/255.0f, a);
     }
 }
 

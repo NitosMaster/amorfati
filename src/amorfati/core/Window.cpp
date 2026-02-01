@@ -28,11 +28,13 @@ namespace amorfati {
         //«== if glad fails ==»//
         if (!gladLoadGL((GLADloadfunc)glfwGetProcAddress)) {
             std::cerr << "GLAD was caught lackin!\n";
-            return;
+            exit(-1);
         }
+
     }
 
     Window::~Window() {
+        glViewport(0, 0, 800, 800);
         if (mWindow) {
             glfwDestroyWindow(mWindow);
         }

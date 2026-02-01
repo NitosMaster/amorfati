@@ -21,11 +21,12 @@ int main () {
     };
 
     amorfati::Shader test = amorfati::CreateVertFrag();
-    unsigned int vao = amorfati::CreateVAO(vertices, edges);
+    unsigned int vao = amorfati::CreateVAO(vertices, sizeof(vertices), edges, sizeof(edges));
 
     while (!window.ShouldClose()) {
         window.Update(0, 0, 0, 1);
         test.useShader();
+        test.setVec4("uColor", 0.6f, 0.2f, 0.4f, 1.0f);
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
     }
