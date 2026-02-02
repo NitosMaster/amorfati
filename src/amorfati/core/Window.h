@@ -11,8 +11,8 @@ namespace amorfati {
         ~Window();
         
         bool ShouldClose() const;
-        //«== alpha is from 0 to 1, while others aren't normalized ==»//
         void Update(float red, float green, float blue, float alpha);
+        void SwapBuffer();
 
     private:
         GLFWwindow* mWindow;

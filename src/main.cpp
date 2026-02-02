@@ -25,11 +25,11 @@ int main () {
 
     while (!window.ShouldClose()) {
         window.Update(0, 0, 0, 1);
-        //test.useShader();
-        test.setVec4("uColor", 0.6f, 0.2f, 0.4f, 1.0f);
         test.useShader();
+        test.setVec4("uColor", 0.6f, 0.2f, 0.4f, 1.0f);
         glBindVertexArray(vao);
         glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+        window.SwapBuffer();
     }
 
     return 0;

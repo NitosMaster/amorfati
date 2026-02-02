@@ -50,6 +50,10 @@ namespace amorfati {
         glClear(GL_COLOR_BUFFER_BIT);
 
         glfwPollEvents();
-        glfwSwapBuffers(mWindow);
+        //glfwSwapBuffers(mWindow); Thank you u/fgennari for pointing this out!
+    }
+
+    void Window::SwapBuffer () {
+        glfwSwapBuffers(mWindow); //«== Seperate form Update func ==»//
     }
 }
