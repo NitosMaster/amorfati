@@ -1,8 +1,8 @@
 #ifndef SHADER_H
 #define SHADER_H
 
-#include <glad/gl.h>
-#include <string>
+#include<glad/gl.h>
+#include<string>
 
 namespace amorfati {
     class Shader {
