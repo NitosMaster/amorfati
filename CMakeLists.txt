@@ -29,7 +29,17 @@ add_library(amorfatiEngine
     src/amorfati/factories/CreateVertFrag.cpp
     src/amorfati/factories/CreateVAO.h
     src/amorfati/factories/CreateVAO.cpp
+    src/amorfati/math/Matrix.cpp
+    src/amorfati/math/Matrix.h
+    src/amorfati/math/Vector.cpp
+    src/amorfati/math/Vector.h
 )
+
+if(MSVC)
+    target_compile_options(amorfatiEngine PRIVATE /arch:SSE2)
+else()
+    target_compile_options(amorfatiEngine PRIVATE -msse2 -mms-bitfields)
+endif()
 
 target_link_libraries(amorfatiEngine PUBLIC glfw glad)
 target_include_directories(amorfatiEngine PUBLIC src)
