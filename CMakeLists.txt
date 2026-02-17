@@ -33,6 +33,8 @@ add_library(amorfatiEngine
     src/amorfati/math/Matrix.h
     src/amorfati/math/Vector.cpp
     src/amorfati/math/Vector.h
+    src/amorfati/math/Quaternion.cpp
+    src/amorfati/math/Quaternion.h
 )
 
 if(MSVC)
