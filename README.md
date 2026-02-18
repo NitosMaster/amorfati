@@ -1,3 +1,3 @@
 # amorfati
-![surprise jumpscare](https://raw.githubusercontent.com/NitosMaster/amorfati/refs/heads/main/assets/nietzsche.png)
+![surprise jumpscare](https://raw.githubusercontent.com/NitosMaster/amorfati/refs/heads/main/assets/nietzsche.png)\
 __amorfati__ _is a declared, expiremental-purpose, low level and reproducable openGL physics / game engine. it applies the suckless and nix philosophy to the context of graphics programming, allowing you to do make any game or simulation from 4D envirements and non-euclidean geometry to fractal dimensions. this is posssible by applying universal math and physics which should be correct in any scenario including those. just declare things from the configuration.txt file and changes will be made to fit **your** needs. this is an ongoing project and is not in a finished state._
