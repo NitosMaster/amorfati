@@ -21,6 +21,7 @@ public:
     float* getRawData() const { return data; }
 
     Vector operator+(const Vector& other) const;
+    Vector operator-(const Vector& other) const;
     Vector operator*(float scalar) const;
     float dot(const Vector& other) const;
     float sqr_magnitude() const;

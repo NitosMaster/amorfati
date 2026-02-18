@@ -27,6 +27,8 @@ public:
     static Matrix Scale(Vector v);
     static Matrix Rotate(Vector axis, float angle);
     static Matrix transpose(Matrix m);
+    static Matrix Project(float fov, float ratio, float near, float far);
+    static Matrix View(Vector cam, Vector target, Vector yuppie);
 
     void Fill(float value);
     void Display() const;

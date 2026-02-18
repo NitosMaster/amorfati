@@ -85,6 +85,14 @@ Vector Vector::operator+(const Vector& other) const {
     return res;
 }
 
+Vector Vector::operator-(const Vector& other) const {
+    Vector res(dimensions);
+    for (int i = 0; i < paddedSize; i += 4) {
+        _mm_store_ps(&res.data[i], _mm_sub_ps(_mm_load_ps(&data[i]), _mm_load_ps(&other.data[i])));
+    }
+    return res;
+}
+
 Vector Vector::operator*(float scalar) const {
     Vector res(dimensions);
     __m128 s = _mm_set1_ps(scalar);

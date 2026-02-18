@@ -147,3 +147,44 @@ Matrix Matrix::Rotate(Vector axis, float angle) {
 
     return nQ.toRotationMatrix();
 }
+
+Matrix Matrix::Project(float fov, float ratio, float near, float far) {
+    Matrix perspective(4, 4);
+    float f = 1 / tan(fov / 2);
+    float addMap = (near +  far) / (near - far);
+    float multiplyMap = (2 * near *  far) / (near - far);
+
+    perspective(0, 0) = f / ratio;
+    perspective(1, 1) = f;
+    perspective(2, 2) = addMap;
+    perspective(2, 3) = multiplyMap;
+    perspective(3, 2) = -1;
+
+    //«== i learned projection from my emacs goat tsoding!! ==»//
+    return perspective;
+}
+
+Matrix Matrix::View(Vector cam, Vector target, Vector yuppie) { //«== y"upp"ie ==»//
+    Vector facing = (cam - target).normalize();
+    Vector right = (yuppie.cross(facing)).normalize();
+    Vector up = facing.cross(right);
+
+    Matrix view(4, 4);
+    
+    //«== here we go again ==»//
+    view(0, 0) = right[0];
+    view(0, 1) = right[1];
+    view(0, 2) = right[2];
+    view(0, 3) = -1 * right.dot(cam);
+    view(1, 0) = up[0];
+    view(1, 1) = up[1];
+    view(1, 2) = up[2];
+    view(1, 3) = -1 * up.dot(cam);
+    view(2, 0) = facing[0];
+    view(2, 1) = facing[1];
+    view(2, 2) = facing[2];
+    view(2, 3) = -1 * facing.dot(cam);
+    view(3, 3) = 1.0f;
+
+    return view;
+}
