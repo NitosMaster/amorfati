@@ -3,7 +3,7 @@
 ----
 
 ## amorfati
-[ a-mor-fa-ti ] * Love of Fate/
+[ a-mor-fa-ti ] * Love of Fate\
 An engine that accepts the universe as you define it
 
 ----
