@@ -1,9 +1,9 @@
 # amorfati
-![surprise jumpscare](https://raw.githubusercontent.com/NitosMaster/amorfati/refs/heads/main/assets/nietzsche.png)\
+![surprise jumpscare](https://raw.githubusercontent.com/NitosMaster/amorfati/refs/heads/main/assets/nietzsche.png)
 ----
 
 ## amorfati
-[ a-mor-fa-ti ] * Love of Fate
+[ a-mor-fa-ti ] * Love of Fate/
 An engine that accepts the universe as you define it
 
 ----
